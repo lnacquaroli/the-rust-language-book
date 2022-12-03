@@ -1,1 +1,0 @@
-/Users/kwazii/Leandro/learning/the-rust-language-book/the-rust-language-book/chapter02/guessing_game/target/debug/guessing_game: /Users/kwazii/Leandro/learning/the-rust-language-book/the-rust-language-book/chapter02/guessing_game/src/main.rs
