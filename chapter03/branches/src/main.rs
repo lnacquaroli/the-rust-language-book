@@ -24,8 +24,6 @@
 // Repeat sequences of code a certain amount of times
 // Usually used with Range method, or the rev (reversed range)
 
-use core::num;
-
 fn main() {
     // If statements
 
@@ -125,8 +123,22 @@ fn main() {
     let temp_celsius = 25.0;
     let temp_fahrenheit = celsius_to_fahrenheit(temp_celsius);
     println!("{temp_celsius} C are equivalent to {temp_fahrenheit} F");
+
+    println!("Fibonacci generator");
+    println!("{}", fibonacci(1));
+    println!("{}", fibonacci(3));
+    println!("{}", fibonacci(5));
 }
 
 fn celsius_to_fahrenheit(temp_celsius: f64) -> f64 {
     temp_celsius * 1.8 + 32.0
+}
+
+// https://benjaminbrandt.com/fibonacci-in-rust/
+fn fibonacci(x: u32) -> u32 {
+    match x {
+        0 => 1,
+        1 => 1,
+        _ => fibonacci(x - 1) + fibonacci(x - 2),
+    }
 }
