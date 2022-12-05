@@ -134,6 +134,9 @@ fn main() {
 
     println!("Fibonacci 3");
     println!("{}", fibonacci_3(10));
+
+    println!("Fibonacci 4");
+    println!("{}", fibonacci_4(2));
 }
 
 fn celsius_to_fahrenheit(temp_celsius: f64) -> f64 {
@@ -183,4 +186,33 @@ fn fibonacci_3(number: u32) -> u32 {
     let a = arr.last().unwrap_or(&0);
 
     *a
+}
+
+fn fibonacci_4(number: u32) -> u32 {
+    let mut arr = vec![0; number as usize];
+
+    println!("{:?}", arr);
+
+    if number < 1 {
+        arr[0] = 0;
+        println!("{:?}", arr);
+    }
+
+    if number <= 2 {
+        arr[0] = 0;
+        arr[1] = 1;
+        println!("{:?}", arr);
+    }
+
+    if number > 2 {
+        arr[0] = 0;
+        arr[1] = 1;
+        for i in 2..number {
+            let index = i as usize;
+            arr[index] = arr[index - 1] + arr[index - 2];
+            println!("{:?}", arr);
+        }
+    }
+
+    arr[number as usize - 1]
 }
