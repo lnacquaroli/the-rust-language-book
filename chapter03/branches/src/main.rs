@@ -128,6 +128,12 @@ fn main() {
     println!("{}", fibonacci(1));
     println!("{}", fibonacci(3));
     println!("{}", fibonacci(5));
+
+    println!("Fibonacci 2");
+    println!("{}", fibonacci_2());
+
+    println!("Fibonacci 3");
+    println!("{}", fibonacci_3(10));
 }
 
 fn celsius_to_fahrenheit(temp_celsius: f64) -> f64 {
@@ -141,4 +147,40 @@ fn fibonacci(x: u32) -> u32 {
         1 => 1,
         _ => fibonacci(x - 1) + fibonacci(x - 2),
     }
+}
+
+fn fibonacci_2() -> u32 {
+    // No idea how to pass a variable into the length of the array (maybe Vec with_capacity)
+    const N: usize = 10;
+
+    let mut arr = [0; N];
+
+    println!("{:?}", arr);
+
+    arr[1] = 1;
+    for i in 2..N {
+        let index = i as usize;
+        arr[index] = arr[index - 1] + arr[index - 2];
+        println!("{:?}", arr);
+    }
+
+    arr[N - 1]
+}
+
+fn fibonacci_3(number: u32) -> u32 {
+    let mut arr: Vec<u32> = Vec::with_capacity(number as usize);
+
+    println!("{:?}", arr);
+
+    arr.push(0);
+    arr.push(1);
+    for i in 2..number {
+        let index = i as usize;
+        arr.push(arr[index - 1] + arr[index - 2]);
+        println!("{:?}", arr);
+    }
+
+    let a = arr.last().unwrap_or(&0);
+
+    *a
 }
